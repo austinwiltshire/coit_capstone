@@ -1,0 +1,103 @@
+f:
+l:
+c: tiburon, civic
+f: bob
+l: marley
+c: f150, civic
+f: fred
+l: flinstone
+c: f150
+f: wilma
+l: flinstone
+c: jaguar
+f: fred
+l: jenkins
+c: jaguar, kia
+f: bob
+l: robertson
+c: humvee
+f: paul
+l: harrison
+c: jaguar, humvee
+f: rob
+l: vanschenck
+c: 
+f: jennifer
+l: vanschenck
+c: civic, rav4
+f: shannon
+l: rozdilsky
+c: rav4, humvee, jaguar
+f: jeff
+l: callison
+c: jaguar, humvee
+f: kevin
+l: thomas
+c: tiburon
+f: jason
+l: rodriguez
+c: civic, humvee
+f: ashley
+l: graham
+c: f150
+f: kurt
+l: johnson
+c: f150, humvee
+f: becca
+l: stewart
+c: jaguar, kia
+f: mike
+l: mooneyham
+c: kia
+f: josh
+l: scott
+c: kia, humvee, civic
+f: andrea
+l: scott
+c: humvee, humvee
+f: noah
+l: scott
+c: jaguar
+f: craig
+l: bowes
+c: civic, f150
+f: david
+l: bowes
+c: civic, kia
+f: pete
+l: young
+c: kia, tiburon
+f: john
+l: mogey
+c: tiburon
+f: charlie
+l: jones
+c: tiburon, humvee, humvee
+f: mark
+l: watson
+c: tiburon, kia
+f: art
+l:
+c: kia
+f: eric
+l: livesay
+c: kia, humvee
+f: brandi
+l: howard
+c: jeep
+f: heather
+l: graham
+c: humvee, tiburon
+f: kathryn
+l: graham
+c: kia
+f:
+l: miers
+c: kia, f150
+f: matt
+l: dase
+c: f150
+f: will
+l: gaffney
+c: tiburon
+
