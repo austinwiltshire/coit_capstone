@@ -7,7 +7,7 @@ Return a completion message upon completion.
 """
 import sqlite3
 import name
-import cars
+import car
 import read_file
 import user_id
 
@@ -24,7 +24,7 @@ def unpack_data(data_package):
     assert len(data_package) == 3, "Data packages consist of 3 strings of information."
     given_name = name.get_given_name_from_label(data_package[0].lower())
     family_name = name.get_family_name_from_label(data_package[1].lower())
-    user_cars = cars.get_from_label(data_package[2])
+    user_cars = car.get_from_label(data_package[2])
 
     if given_name and family_name and user_cars:
         return (given_name,
@@ -60,10 +60,10 @@ def prep_data(data_objects):
             user_data_rows.append((id_number, given_name, family_name))
 
             # Prepare the data rows for the 'cars table'.
-            user_cars = data_object[2]
-            assert cars.are_valid(user_cars)
-            for car in user_cars:
-                car_data_rows.append((car, id_number))
+            cars = data_object[2]
+            assert car.are_valid(cars)
+            for each_car in cars:
+                car_data_rows.append((each_car, id_number))
 
     return user_data_rows, car_data_rows
 

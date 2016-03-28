@@ -31,3 +31,19 @@ def get_family_name_from_label(family_name_str):
                         family_name_str,
                        )
     return family_name
+
+def assemble_full_name(user_name_tuple):
+    """Take in a tuple containing two strings: a given name and a
+    family name. Validate the names and return them as a single string
+    in the format:
+    <given_name> <family_name>
+    """
+    assert len(user_name_tuple) == 2
+
+    given_name = user_name_tuple[0]
+    assert is_valid(given_name), "Invalid first name."
+
+    family_name = user_name_tuple[1]
+    assert is_valid(family_name), "Invalid last name."
+
+    return given_name + " " + family_name
