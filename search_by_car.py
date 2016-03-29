@@ -32,7 +32,8 @@ def search_by_car(car_name, db_cursor):
     select_statement = """SELECT given_name, family_name
                        FROM users, cars
                        WHERE users.userID = cars.owner
-                           AND car =?"""
+                           AND car =?
+                       GROUP BY given_name"""
     users = database.query(select_statement, car_name.lower(), db_cursor)
     return [name.assemble_full_name(user) for user in users] if users else None
 
