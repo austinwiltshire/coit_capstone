@@ -18,7 +18,6 @@ def create(given_name, family_name):
     strings and a random integer between 100 and 999 to create a unique
     user_id. Example using John Smith:
     jsmith###
-    Return the user_id.
     """
     assert name.is_valid(given_name)
     id_head = given_name[0].lower()
@@ -29,3 +28,16 @@ def create(given_name, family_name):
     id_tail = random.randint(100, 999)
 
     return id_head + id_body + str(id_tail)
+
+def write_to_file(db_cursor, txt_filename):
+    """Take in a database cursor object and a desired text filename.
+    Find all the userIDs in the database and print them to a text file.
+    """
+    select_statement = """SELECT userID
+                       FROM users"""
+    db_cursor.execute(select_statement)
+    user_ids = db_cursor.fetchall()
+    user_ids_file = open(txt_filename, 'w')
+    for i in range(0, len(user_ids)):
+        user_ids_file.write(user_ids[i][0]+'\n')
+    user_ids_file.close()

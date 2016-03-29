@@ -57,6 +57,7 @@ def prep_data(data_objects):
             family_name = data_object[1]
             assert name.is_valid(family_name)
             id_number = user_id.create(given_name, family_name)
+            assert user_id.is_valid(id_number)
             user_data_rows.append((id_number, given_name, family_name))
 
             # Prepare the data rows for the 'cars table'.
@@ -111,30 +112,25 @@ if __name__ == "__main__":
     DB_CURSOR = DATABASE.cursor()
 
     # Extract data from text file.
-    FILENAME = 'cars.txt' # Insert filename here.
+    FILENAME = 'cars.txt' # Insert data input filename here.
     DATA_PACKAGES = read_file.get_data(FILENAME, package_size=3)
     DATA_OBJECTS = [unpack_data(DATA_PACKAGE) for DATA_PACKAGE in DATA_PACKAGES]
 
     # Prepare the data objects for insertion into tables in the database.
     USER_DATA_ROWS, CAR_DATA_ROWS = prep_data(DATA_OBJECTS)
-    print "========================================================================="
-    print "User Data Rows:"
-    for ROW in USER_DATA_ROWS:
-        print ROW
-    print "========================================================================="
-    print "========================================================================="
-    print "Car Data Rows:"
-    for ROW in CAR_DATA_ROWS:
-        print ROW
-    print "========================================================================="
 
     # Create data tables in the users' cars database.
     create_users_table(DB_CURSOR, USER_DATA_ROWS)
     create_cars_table(DB_CURSOR, CAR_DATA_ROWS)
+
+    # Make user IDs text file for future reference.
+    ID_OUTPUT_FILENAME = 'userIDs.txt' # Insert desired IDs list text filename here.
+    user_id.write_to_file(DB_CURSOR, ID_OUTPUT_FILENAME)
 
     # Save and close the database.
     DATABASE.commit()
     DATABASE.close()
 
     print "Database complete."
-    print "Filename: %s" % DB_FILENAME
+    print "Database: %s" % DB_FILENAME
+    print "User IDs: %s" % ID_OUTPUT_FILENAME
