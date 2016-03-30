@@ -6,9 +6,7 @@ def is_valid(name):
     """Take in a string containing a name. Return True if it is valid,
     Otherwise, return False.
     """
-    if re.search("[a-zA-Z]+", name):
-        return True
-    return False
+    return True if re.search("[a-zA-Z]+", name) else False
 
 def get_given_name_from_label(given_name_str):
     """Take in a string in the format:

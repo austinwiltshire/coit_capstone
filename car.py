@@ -6,18 +6,13 @@ def is_valid(car_name):
     """Take in a string containing a car name. Return True if it is
     valid name. Otherwise, return False.
     """
-    if re.search(r"[\w.-]+", car_name):
-        return True
-    return False
+    return True if re.search(r"[\w.-]+", car_name) else False
 
 def are_valid(car_names):
     """Take in a list of car names. Return True if every car in the list is
     valid. Otherwise, return False.
     """
-    for each_car in car_names:
-        if not re.search(r"[\w.-]+", each_car):
-            return False
-    return True
+    return True if all([is_valid(car_name) for car_name in car_names]) else False
 
 def get_from_label(cars_str):
     """Take in a string in the format:

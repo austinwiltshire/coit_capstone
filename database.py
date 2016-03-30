@@ -5,9 +5,7 @@ def is_valid_name(filename):
     """Take in the name of a database as a string. Return True if it is
     a valid SQLite filename. Otherwise, return False.
     """
-    if re.search(r"\b[\w.-]+.sqlite\b", filename):
-        return True
-    return False
+    return True if re.search(r"\b[\w.-]+.sqlite\b", filename) else False
 
 def query(select_statement, search_term, db_cursor):
     """Take in an SQL select statement, a search term, and a database

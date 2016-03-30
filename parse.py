@@ -7,6 +7,4 @@ def parse(regex, group_name, string):
     analyzed. Return a found match. Otherwise, return None.
     """
     parsed_data = re.search(regex, string)
-    if parsed_data:
-        return parsed_data.group(group_name)
-    return None
+    return parsed_data.group(group_name) if parsed_data else None

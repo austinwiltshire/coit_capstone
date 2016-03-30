@@ -31,7 +31,7 @@ def search_by_car(car_name, db_cursor):
     assert car.is_valid(car_name), "Invalid car name."
     select_statement = """SELECT given_name, family_name
                        FROM users, cars
-                       WHERE users.userID = cars.owner
+                       WHERE users.userID = cars.userID
                            AND car =?
                        GROUP BY given_name"""
     users = database.query(select_statement, car_name.lower(), db_cursor)

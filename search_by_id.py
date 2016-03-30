@@ -17,21 +17,21 @@ def unpack_user_input(user_input):
     db_filename = user_input[0]
     assert database.is_valid_name(db_filename), "Invalid database filename."
 
-    user_identification = user_input[1]
-    assert user_id.is_valid(user_identification), "Invalid user ID."
+    user_id_num = user_input[1]
+    assert user_id.is_valid(user_id_num), "Invalid user ID."
 
-    return (db_filename, user_identification)
+    return (db_filename, user_id_num)
 
-def search_by_id(user_identification, db_cursor):
+def search_by_id(user_id_num, db_cursor):
     """Take in a user ID as a string and a database cursor object. If
     the user ID exists in the database, return a list of each car
     associated with that user ID. Otherwise, return None.
     """
-    assert user_id.is_valid(user_identification), "Invalid user ID."
+    assert user_id.is_valid(user_id_num), "Invalid user ID."
     select_statement = """SELECT car
                        FROM cars
-                       WHERE owner =?"""
-    users_cars = database.query(select_statement, user_identification.lower(), db_cursor)
+                       WHERE userID =?"""
+    users_cars = database.query(select_statement, user_id_num, db_cursor)
     return [car[0] for car in users_cars] if users_cars else None
 
 if __name__ == "__main__":
