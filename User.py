@@ -41,3 +41,9 @@ class User(object):
     def get_cars(self):
         """Return a list of the User Object's cars."""
         return self._cars
+
+    def assemble_full_name(self):
+        """Return the user's full name as a string in the format:
+        '<given_name> <family_name>'
+        """
+        return self._given_name + " " + self._family_name

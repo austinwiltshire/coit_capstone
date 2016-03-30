@@ -4,7 +4,7 @@ Print the full names of all the users who own that type of car.
 """
 import sqlite3
 import sys
-import name
+import User
 import car
 import database
 
@@ -35,7 +35,9 @@ def search_by_car(car_name, db_cursor):
                            AND car =?
                        GROUP BY given_name"""
     users = database.query(select_statement, car_name.lower(), db_cursor)
-    return [name.assemble_full_name(user) for user in users] if users else None
+    return [User.User(user[0],
+                      user[1],
+                      [car_name]).assemble_full_name() for user in users] if users else None
 
 if __name__ == "__main__":
     # Get command line arguments.
